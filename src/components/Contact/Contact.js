@@ -8,7 +8,7 @@ const Contact = () => {
     <section className='section contact center' id='contact'>
       <h2 className='section__title'>Contact</h2>
       <a href={`mailto:${contact.email}`}>
-        <span type='button' className='btn btn--outline'>
+        <span type='button' className='btn btn--outline' style={{fontSize:"20px"}}>
           Email me
         </span>
       </a>

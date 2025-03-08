@@ -3,20 +3,20 @@ import aboutpic from "./components/Access/mePhoto.jpg"
 const header = {
   // all the properties are optional - can be left empty or deleted
   homepage: ' ',
-  title: 'JS.',
+  title: 'Bigdwarf',
 }
 
 const about = {
   photo:aboutpic,
   // all the properties are optional - can be left empty or deleted
   name: 'Yash',
-  role: 'Game Developer, Software Engineer,',
+  role: '',
   description:
-    'UW and SMU bootcamp student living in Seattle,Washington. ',
-  resume: 'https://drive.google.com/drive/folders/12MP3uHk94Ew6_egSJqgxbvycI60gHfXA?usp=sharing',
+    'A Computer science student with a love for crafting software, developing games, and telling great stories!',
+  resume: 'https://drive.google.com/file/d/1o6vjs-eZG49IrjE-65jp99uWhcGHcY7B/view?usp=sharing',
   social: {
-    linkedin: 'https://www.linkedin.com/in/cheng-chien-huang-912467152/',
-    github: 'https://github.com/Morganbb104',
+    linkedin: 'https://www.linkedin.com/in/yash-wankhedkar-876496193/',
+    github: 'https://github.com/bigdwarf43',
   },
 }
 
@@ -24,73 +24,81 @@ const projects = [
   // projects can be added an removed
   // if there are no projects, Projects section won't show up
   {
-    name: 'Movie Tracker',
+    name: 'Dnnovate educational games prototypes',
     description:
-      'As users, we see a page that lets anyone look for the movies from the search bar by key words, and obtaining the actual or similar movies with their years, actors, rating, and description information by recommendation. In addition, they can search the nearby theaters from where they currently are located.',
-    stack: ['localstorage', 'Openweather API', 'Google Map API','Movie Database API'],
-    sourceCode: 'https://github.com/Mike-C-Sanders/Movie-Tracker',
-    livePreview: 'https://mike-c-sanders.github.io/Movie-Tracker/',
-  },
-  {
-    name: 'Event Planner',
-    description:
-      'Event Planner was designed with the partier in mind, the one who wants to find fine dinning or a friend to have a good time. Event Planner is the easiest way for anyone to find an event to attend, create or host your own event or browse whats happening in your local area.',
-    stack: ['swiper.js', 'npm', 'jawsdb','handlebars','express','nodejs'],
-    sourceCode: 'https://github.com/Morganbb104/Event_Planner_project2',
-    livePreview: 'https://obscure-chamber-98928.herokuapp.com/',
-  },
-  {
-    name: 'Resource Planner',
-    description:
-      'Resource Planner is able to distrute the current resource including human resource,time and budget in one company in order to help user to manahe their projects',
-    stack: ['html-css-javascript', 'sequelize', 'React'],
-    sourceCode: 'https://github.com/stone-com/Resource-Planner',
-    livePreview: 'https://resource-planner-group2.herokuapp.com/',
-  },
-  {
-    name: 'GameStoreData(back end)',
-    description:
-      'GameStoreData is able to let user retrieve the game from database based on its year and category',
-    stack: ['Java 8', 'MySQL', 'React'],
-    sourceCode: 'https://github.com/stone-com/Resource-Planner',
+      'Collaborated with two team members to design and develop educational game prototypes during an internship at dnnovate digitals.',
+    stack: ['Unity3d', 'C#'],
+    // sourceCode: 'https://github.com/Mike-C-Sanders/Movie-Tracker',
+    livePreview: 'https://bigdwarf43.itch.io/educationalmathgameprototypes',
     
+    gif: 'https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif'
+
   },
   {
-    name: 'Music Store(back end)',
+    name: 'Abstractive long text Summarizer',
     description:
-      'MusicStore is able to direct user to the desired page based on its endpoints by track, album,artist and label',
-    stack: ['html-css-javascript', 'sequelize', 'React'],
-    sourceCode: 'https://github.com/Morganbb104/M7-project2-musictore-recommendations-Huang_Chengchien',
-    livePreview: 'https://cheng32-musicstore-catalog.herokuapp.com/track',
+      'Led a four-member team in the development of a long text summarization and Retrieval-Augmented Generation (RAG) system using the LLama2 large language model for our final year project.',
+    stack: ['langchain', 'Llama2', 'Python'],
+    sourceCode: 'https://github.com/bigdwarf43/langchain-pdf-chat',
+    gif: 'https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif'
+
+    // livePreview: 'https://obscure-chamber-98928.herokuapp.com/',
+  },
+  {
+    name: "Pharaoh Neko Chan's Dungeon",
+    description:
+      'Made for Wowie jam 3.0, My first game jam ever!',
+    stack: ['Godot', 'gdscript'], 
+    // sourceCode: 'https://github.com/stone-com/Resource-Planner',
+    livePreview: 'https://bigdwarf43.itch.io/pharaoh-neko-chans-dungeon',
+    gif: 'assets/pharaoh_neko_v2.gif'
+
+  },
+  {
+    name: 'Bunnykillinator',
+    description:
+      "Made for 'So Bad it's Good' Jam 2022' Won the third place!",
+    stack: ['Godot', 'gdscript'],
+    // sourceCode: 'https://github.com/Cognitive-Activation/Mindinator',
+    livePreview: 'https://bigdwarf43.itch.io/bunnykillinator',
+    gif: '/assets/bunnykillinator_gif.gif'
+
+    
   },
 ]
 
 const skills = [
   // skills can be added or removed
   // if there are no skills, Skills section won't show up
+  'Unity',
+  'Godot',
+  'Java',
+  'Python',
+  'Langchain',
+  'C#',
+  'JavaScript',
+  'Svelte',
   'HTML',
   'CSS',
-  'JavaScript',
-  'TypeScript',
-  'Express',
-  'MySQL',
-  'MongoDB',
+  'GDscript'
+]
+
+const familiarWithSkills = [
+  'Node.js',
+  'Express.js',
   'React',
+  'MongoDB',
   'Redux',
-  'SASS',
-  'Material UI',
+  'SQL',
   'Git',
-  'MERN',
-  'Java 8',
-  'Java Spring Boot',
-  'Microservices',
   'Docker',
-  'Heroku'
+  'Blender',
+  'Asperite'
 ]
 
 const contact = {
   // email is optional - if left empty Contact section won't show up
-  email: 'hcc780921@gmail.com',
+  email: 'yashwankhedkar43@gmail.com  ',
 }
 
-export { header, about, projects, skills, contact }
+export { header, about, projects, skills, contact, familiarWithSkills}

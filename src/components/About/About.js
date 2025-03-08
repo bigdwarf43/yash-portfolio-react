@@ -13,30 +13,33 @@ const About = () => {
       <div className='about about-column flex-container'>
         <div>
           {name && (
-            <h1>
+            <h2>
               Hi, I am <span className='about__name'>{name}!</span>
               {role && <h2 className='about__role'>A {role}</h2>}
-              <h2>And a Storyteller!</h2>
               <p className='about__desc'>{description && description}</p>
-            </h1>
+            </h2>
           )}
           <div className='about about__contact '>
-        <h1>
-          {resume && (
-            <a href={resume} >
-              <span type='button' className='btn--outline'>
-                Resume
-              </span>
-            </a>
-          )}
+            <h1>
+              {resume && (
+                <a href={resume} className='resume-link'>
+                  <span type='button' className='btn--outline'>
+                    Resume
+                  </span>
+                </a>
+              )}
 
-          {social && (
+        </h1>
+
+      </div>
+      <div style={{paddingTop:"20px"}}>
+      {social && (
             <>
               {social.github && (
-                <a
+                <a 
                   href={social.github}
                   aria-label='github'
-                  className='link link--icon'
+                  className='link link--icon '
                 >
                   <GitHubIcon />
                 </a>
@@ -53,9 +56,6 @@ const About = () => {
               )}
             </>
           )}
-
-        </h1>
-
       </div>
 
 
