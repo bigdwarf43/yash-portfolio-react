@@ -1,3 +1,5 @@
+ /* eslint-disable */
+
 import { useContext, useState} from 'react'
 
 
@@ -53,3 +55,5 @@ const App = () => {
 }
 
 export default App
+
+ /* eslint-disable */
