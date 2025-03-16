@@ -1,0 +1,100 @@
+.flex-container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+
+.game-container{
+  position: relative;
+  height: auto;
+  width: auto;
+  border: 5px solid var(--clr-fg);
+}
+
+.about-column{
+  align-items: center;
+  align-content: center;
+  position: relative;
+  justify-content: center;
+  
+}
+
+.about-column iframe{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border: 10px solid var(--clr-primary);
+} 
+
+
+.about {
+  margin-top: 5em;
+}
+
+.about__name {
+  color: var(--clr-primary);
+}
+
+.about__role {
+  margin-top: 1.2em;
+}
+
+.about__desc {
+  font-size: 2rem;
+  max-width: 600px;
+}
+
+.about__desc,
+.about__contact {
+  margin-top: 0.5em;
+  
+}
+
+.about .link--icon {
+  margin-right: 0.5em;
+  font-size: 2rem;
+}
+
+.about .btn--outline {
+  max-width: 4em;
+  font-size: 2rem;
+  text-align: center; /* Use text-align property to center text */
+  display: block; 
+}
+
+
+@media (max-width: 1160px) {
+  .app .about {
+    align-items: center;
+    margin-top: 2em;
+    text-align: center; 
+  }
+
+
+  .about-container {
+    flex-direction: column; /* Change to a vertical layout on small screens */
+    align-items: center;
+  }
+
+  .about {
+    flex: none; /* Disable flex grow to prevent columns from stretching */
+    width: 100%; /* Make columns take up full width on small screens */
+    align-items: center;
+    align-content: center;
+  }
+
+  .about h1,
+  .about p {
+    text-align: center;
+    margin: 0; /* Remove default margin to ensure accurate centering */
+  }
+
+  .resume-link {
+    text-align: center;
+    display: inline-block;
+    /* Add any additional styling as needed */
+  }
+
+}

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<title>AWESOME BROUGHLIKE</title>
+
+<style>
+    canvas{
+    
+    /* background-size: cover; */
+    display: block;
+    outline: none;
+    height: 100%;
+    max-height: 100vw;
+    max-width: 100vh;
+    width: 110%;
+    /* max-width: 80vh; */
+    }
+
+    body{
+    background-color: #2E2B28; /* A dark, earthy color */
+    text-align: center;
+    align-items: center;
+    display: block;
+    display: -webkit-flex;
+    -webkit-justify-content: center;
+            justify-content: center;
+    -webkit-align-items: center;
+            align-items: center; 
+            height: 100%;
+            margin: 0;
+            width: 100%;
+            /* transform: scale(2); */
+            overflow: hidden;
+    }
+
+    @font-face {
+    font-family: 'Creepster';
+    src: url('fonts/Creepster-Regular.ttf') format('truetype')
+    }
+
+    @font-face {
+    font-family: 'Hamlet';
+    src: url('fonts/Hamletornot-K7y7.ttf') format('truetype')
+    }
+
+    @font-face {
+    font-family: 'Bard';
+    src: url('fonts/Bardolatry-ow9g4.ttf') format('truetype')
+    }
+
+
+
+/* Style the input for the dwarvish LOTR theme */
+input[type="text"].dnd-input {
+    background: url('lotr-dwarvish-parchment.jpg'); /* Dwarvish parchment-like background */
+    background-size: cover;
+    border: 2px solid #703529; /* A color resembling dwarf craftsmanship */
+    padding: 10px;
+    font-family: 'Papyrus', serif; /* Choose a font reminiscent of ancient texts */
+    font-size: 16px;
+    color: #703529; /* Dwarf-style text color */
+    text-align: center; 
+    font-weight: bold;
+    outline: none; 
+}
+input[type="text"].dnd-input:focus {
+    border: 4px solid #703529;
+}
+
+/* Style the placeholder text with a dwarvish font */
+input[type="text"].dnd-input::placeholder {
+    font-family: 'Papyrus', serif;
+    font-size: 16px;
+    color: #703529;
+    opacity: 1;
+    font-weight: bold;
+}
+
+
+
+
+</style>
+
+<html>
+    <body>
+            <canvas  ></canvas>
+    </body>
+
+
+</html>
+
+
+
+<link href='https://fonts.googleapis.com/css?family=VT323' rel='stylesheet'>
+<script src="js/game.js"></script>
+<script src="js/map.js"></script>
+<script src="js/tile.js"></script>
+<script src="js/monster.js"></script>
+<script src="js/util.js"></script>
+<script src="js/astar.js"></script>
+<script src="js/spell.js"></script>
+<script>
+    
+
+    tileSize = 64;
+    numTiles = 9;
+    uiWidth = 4;
+    level = 1;
+    maxHp = 6;
+
+    playerName = "player 1";
+    gameWon = false;
+
+
+    spritesheet = new Image();
+    spritesheet.src = 'spritesheet3.png';
+    spritesheet.onload = showTitle;
+                             
+    gameState = "loading";  
+    lastScreenDisplayed = false;
+
+    startingHp = 3; 
+    numLevels = 6;      
+
+    shakeAmount = 0;       
+    shakeX = 0;                 
+    shakeY = 0;   
+    grid = [];
+    var result = [];
+    let spellsArr = ["CROSS", "WOOP", "BOLT", "EX", "MAELSTORM"];
+    
+
+    
+    const form = document.getElementById('playerName');
+    const inputElement = document.getElementById('textInput');
+
+
+    // const timerId = setTimeout(startGame, 3000);
+    function stateChange(){
+        if(gameState == "title"){  
+            startGame();             
+        }                                            
+        if(gameState == "dead"){            
+            grid = [];
+        result = [];     
+            showWinOrLoseScreen("Lost");    
+        }
+
+        else if(gameState == "deadScreen"){   
+            showTitle();
+            // inputElement.style.display = 'block'; 
+            // inputElement.focus();                        
+            // showTitle();                                        
+        }
+        
+        else if(gameState == "running"){            
+            
+
+            if(result.length == 0){
+                graph = new Graph(grid);
+                // let gridBack = grid;
+                var start = graph.grid[player.tile.x][player.tile.y];
+                var end = graph.grid[player.exitTile.x][player.exitTile.y];
+                result = astar.search(graph, start, end);
+            }
+            else{
+                var step = result[0];
+
+                let monstersArr = (player.tile.getAdjacentPassableNeighbors()).filter(t => t.monster);
+                if(monstersArr.length>=2){
+                        player.castSpell(0, spellsArr[Math.floor(Math.random * spellsArr.length)]);
+                        return;
+                    }
+                else if(getTile(step.x, step.y).monster){
+                    simulateChance(0.5) ? player.castSpell(Math.floor(Math.random() * player.spells.length)) : player.tryMove(step.x - player.tile.x , step.y - player.tile.y);
+                    return;
+                }
+                else{
+                    result.shift();
+                    player.tryMove(step.x - player.tile.x , step.y - player.tile.y);
+                    return;
+                }
+
+            }            
+            
+            
+        }
+    };
+
+    function simulateChance(probability) {
+    if (Math.random() < probability) {
+        return true;
+    } else {
+        return false;
+    }
+    }
+
+
+
+
+    setInterval(draw, 15);
+    setInterval(stateChange, 700);
+    
+
+    setupCanvas();
+
+
+
+
+
+</script>
