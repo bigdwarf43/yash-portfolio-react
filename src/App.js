@@ -1,4 +1,6 @@
-import { useContext, useState } from 'react'
+import { useContext, useState} from 'react'
+
+
 import { ThemeContext } from './contexts/theme'
 import Header from './components/Header/Header'
 import About from './components/About/About'
@@ -11,6 +13,7 @@ import Game from './components/Game/Game'
 import TimelineExperience from './components/Experience/Experience'
 import './App.css'
 
+ 
 const App = () => {
   const [{ themeName }] = useContext(ThemeContext)
   const [activeComponent, setActiveComponent] = useState('about') // Default open component
@@ -26,21 +29,16 @@ const App = () => {
       <main className="main-content">
         <div className={`drawer-component ${activeComponent === 'about' ? 'active' : ''}`}>
           <About />
-          <TimelineExperience />
-
-
           <Projects />
 
         </div>
-        <div className={`drawer-component ${activeComponent === 'game' ? 'active' : ''}`}>
-          <Game />
-        </div>
-        {/* <div className={`drawer-component ${activeComponent === 'experience' ? 'active' : ''}`}>
+
+        <div className={`drawer-component ${activeComponent === 'experience' ? 'active' : ''}`}>
           <TimelineExperience />
-        </div> */}
-        {/* <div className={`drawer-component ${activeComponent === 'projects' ? 'active' : ''}`}>
+        </div>
+        <div className={`drawer-component ${activeComponent === 'projects' ? 'active' : ''}`}>
           <Projects />
-        </div> */}
+        </div>
         <div className={`drawer-component ${activeComponent === 'skills' ? 'active' : ''}`}>
           <Skills />
         </div>

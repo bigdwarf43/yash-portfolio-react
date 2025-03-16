@@ -1,14 +1,8 @@
 import * as React from 'react';
-import Timeline from '@mui/lab/Timeline';
-import TimelineItem from '@mui/lab/TimelineItem';
-import TimelineSeparator from '@mui/lab/TimelineSeparator';
-import TimelineConnector from '@mui/lab/TimelineConnector';
-import TimelineContent from '@mui/lab/TimelineContent';
-import TimelineDot from '@mui/lab/TimelineDot';
-import TimelineOppositeContent from '@mui/lab/TimelineOppositeContent';
-import { Typography, Box, Chip, Paper } from '@mui/material';
-
+import { Typography, Card, CardContent, Box, Chip, Stack, Divider } from '@mui/material';
 import './Experience.css';
+
+// Using the same experiences data from your original component
 
 export const experiences = [
   {
@@ -37,9 +31,10 @@ export const experiences = [
   }
 ];
 
-export default function WorkExperienceTimeline() {
+
+export default function MobileExperienceList() {
   return (
-    <div className="timeline-section">
+    <div className="mobile-experience-section">
       <Typography 
         variant="h4" 
         gutterBottom 
@@ -47,76 +42,75 @@ export default function WorkExperienceTimeline() {
       >
         Professional Experience
       </Typography>
-
-      <Timeline position="alternate" sx={{ mt: 4 }}>
-        {experiences.map((exp, index) => (
-          <TimelineItem key={exp.id}>
-            {/* Left Side (Duration) */}
-            <TimelineOppositeContent
-              className="timeline-duration"
-              align="right"
-              variant="body2"
-            >
-              {exp.duration}
-            </TimelineOppositeContent>
-
-            {/* Connector and Dot */}
-            <TimelineSeparator>
-              {index !== 0 && (
-                <TimelineConnector className="timeline-connector" />
-              )}
-              <TimelineDot className="timeline-dot" />
-              {index !== experiences.length - 1 && (
-                <TimelineConnector className="timeline-connector" />
-              )}
-            </TimelineSeparator>
-
-            {/* Right Side (Content) */}
-            <TimelineContent sx={{ py: '12px', px: 2 }}>
-              <Paper className="experience-card">
-                {/* Job Role */}
+      
+      <Stack spacing={2} sx={{ mt: 3 }}>
+        {experiences.map((exp) => (
+          <Card 
+            key={exp.id} 
+            className="mobile-experience-card"
+            elevation={2}
+          >
+            <CardContent>
+              {/* Role and Company in header */}
+              <Box className="card-header">
                 <Typography
                   variant="h6"
-                  component="span"
+                  component="div"
                   className="job-role"
                 >
                   {exp.role}
                 </Typography>
-
-                {/* Company */}
+                
                 <Typography
                   variant="subtitle1"
                   className="company-name"
+                  color="text.secondary"
                 >
                   {exp.company}
                 </Typography>
-
-                {/* Description */}
-                <Typography
-                  variant="body2"
-                  className="job-description"
-                >
-                  {exp.description}
-                </Typography>
-
-                {/* Skills with Alternate Alignment */}
-                <Box
-                  className={`skills-container ${index % 2 === 0 ? 'align-start' : 'align-end'}`}
-                >
-                  {exp.skills.map((skill) => (
-                    <Chip
-                      key={`${exp.id}-${skill}`}
-                      label={skill}
-                      size="small"
-                      className="skill-chip"
-                    />
-                  ))}
-                </Box>
-              </Paper>
-            </TimelineContent>
-          </TimelineItem>
+              </Box>
+              
+              {/* Duration with a visual indicator */}
+              <Box className="duration-container" sx={{ my: 1 }}>
+                <Chip 
+                  label={exp.duration} 
+                  size="small" 
+                  color="primary" 
+                  variant="outlined"
+                  className="duration-chip"
+                />
+              </Box>
+              
+              <Divider sx={{ my: 1.5 }} />
+              
+              {/* Description */}
+              <Typography
+                variant="body2"
+                className="job-description"
+                sx={{ mb: 2 }}
+              >
+                {exp.description}
+              </Typography>
+              
+              {/* Skills */}
+              <Typography variant="caption" color="text.secondary" sx={{ display: 'block', mb: 1 }}>
+                Skills:
+              </Typography>
+              
+              <Box className="skills-wrapper" sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
+                {exp.skills.map((skill) => (
+                  <Chip
+                    key={`${exp.id}-${skill}`}
+                    label={skill}
+                    size="small"
+                    className="skill-chip"
+                  />
+                ))}
+              </Box>
+            </CardContent>
+          </Card>
         ))}
-      </Timeline>
+      </Stack>
     </div>
   );
 }

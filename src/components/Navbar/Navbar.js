@@ -87,16 +87,7 @@ const Navbar = ({ setActiveComponent, activeComponent }) => {
               About
             </a>
           </li>
-          
-          <li className='nav__list-item'>
-            <a
-              href='#game'
-              onClick={(e) => handleNavClick(e, 'game')}
-              className={`link link--nav ${activeComponent === 'game' ? 'active' : ''}`}
-            >
-              Game
-            </a>
-          </li>
+
           
           <li className='nav__list-item'>
             <a
