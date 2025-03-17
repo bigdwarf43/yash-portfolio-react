@@ -2,50 +2,48 @@ import GitHubIcon from '@material-ui/icons/GitHub'
 import LinkedInIcon from '@material-ui/icons/LinkedIn'
 import { about } from '../../portfolio'
 import './About.css'
-// import Pixelanimation from '../Pixelanimation/Pixelanimation'
-import Broughlike from "../Broughlike/Broughlike";
 
 const About = () => {
   const { name, role, description, resume, social } = about
-
   return (
-    <div >
-
+    <div>
       <div className='about about-column flex-container'>
-        <div>
+        <div className="profile-image-container">
+          <div className='game-container'>
+            <img src='assets/pfp/dwarf.jpg' alt='' className="profile-image"/>
+          </div>
+        </div>
+        <div className="about-content">
           {name && (
             <h2>
-              Hi, I am <span className='about__name'>{name}!</span>
+              <span className='about__name'>{name}</span>
               {role && <h2 className='about__role'>A {role}</h2>}
               <p className='about__desc'>{description && description}</p>
             </h2>
           )}
-          <div className='about about__contact '>
-            <h1>
-              {resume && (
-                <a href={resume} className='resume-link'>
-                  <span type='button' className='btn--outline'>
-                    Resume
-                  </span>
-                </a>
-              )}
-
-            </h1>
-
+          
+          <div className='about about__contact'>
+            {resume && (
+              <a href={resume} className='resume-link'>
+                <span type='button' className='btn--outline'>
+                  Resume
+                </span>
+              </a>
+            )}
           </div>
-          <div style={{ paddingTop: "20px" }}>
+          
+          <div className="social-links-container">
             {social && (
               <>
                 {social.github && (
                   <a
                     href={social.github}
                     aria-label='github'
-                    className='link link--icon '
+                    className='link link--icon'
                   >
                     <GitHubIcon />
                   </a>
                 )}
-
                 {social.linkedin && (
                   <a
                     href={social.linkedin}
@@ -58,33 +56,9 @@ const About = () => {
               </>
             )}
           </div>
-
-
         </div>
-
-        <div  >
-          {/* <div style={{width: "400px", height: "397px"}}>
-              <Broughlike />
-            </div> */}
-          {/* <Pixelanimation /> */}
-          <div className='game-container' >
-                <div className="game-size-container" >
-                    <Broughlike />
-                </div>
-            </div>
-        </div>
-
-
       </div>
-
-
-
-
-
-
     </div>
-
-
   )
 }
 

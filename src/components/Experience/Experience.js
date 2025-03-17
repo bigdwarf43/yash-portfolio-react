@@ -1,36 +1,7 @@
 import * as React from 'react';
 import { Typography, Card, CardContent, Box, Chip, Stack, Divider } from '@mui/material';
 import './Experience.css';
-
-// Using the same experiences data from your original component
-
-export const experiences = [
-  {
-    id: 'exp-1',
-    role: 'Software Development Engineer',
-    company: 'XYZ Startup',
-    duration: 'Jan 2024 – Present',
-    description: 'Working on building scalable backend systems and improving product performance.',
-    skills: ['Node.js', 'AWS', 'MongoDB', 'Docker']
-  },
-  {
-    id: 'exp-2',
-    role: 'Software Engineering Intern',
-    company: 'ABC Corp',
-    duration: 'May 2023 – Dec 2023',
-    description: 'Developed new features and optimized existing codebase for better performance.',
-    skills: ['React', 'TypeScript', 'GraphQL']
-  },
-  {
-    id: 'exp-3',
-    role: 'Freelance Game Developer',
-    company: 'Independent',
-    duration: '2022 – 2023',
-    description: 'Created small games and participated in multiple game jams, building a portfolio on itch.io.',
-    skills: ['Unity', 'C#', 'Blender', 'Game Design']
-  }
-];
-
+import { experiences } from '../../portfolio'
 
 export default function MobileExperienceList() {
   return (

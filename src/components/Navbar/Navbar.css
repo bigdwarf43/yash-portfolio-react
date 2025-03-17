@@ -29,6 +29,49 @@
   margin-top: 0.4em;
   transition: color 0.3s ease;
 }
+
+
+/* Base styles for all nav links */
+.link--nav {
+  position: relative;
+  font-size: 1rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  display: inline-block; /* Ensures the container only wraps around the text */
+}
+
+/* Remove the default active state styling */
+.link--nav.active {
+  font-weight: bold;
+  border-bottom: none; /* Remove the default border */
+  border-radius: 6px; /* Maintain consistent border-radius */
+}
+
+/* Add custom underline with pseudo-element */
+.link--nav::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--clr-primary);
+  transition: width 0.3s ease;
+}
+
+/* Expand underline on hover - precisely match text width */
+.link--nav:hover::after {
+  width: 100%;
+}
+
+/* Active state shows full underline - precisely match text width */
+.link--nav.active::after {
+  width: 100%;
+}
+
+
+
 /* Drawer Component Styles */
 .main-content {
   position: relative;
@@ -100,36 +143,25 @@
     flex-direction: column;
     position: absolute;
     top: 100%; /* Position below the header */
-    right: 0;
-    width: auto;
+    left: 50%; 
+    transform: translateX(-50%); 
+    width: 80%; 
     min-width: 200px;
-    max-width: 80%;
+    max-width: 300px; 
     background-color: var(--bg-color);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    border-radius: 0 0 4px 4px;
+    border-radius: 8px; /* Rounded corners on all sides */
     padding: 1rem;
     z-index: 25;
     height: auto;
     max-height: 80vh;
     overflow-y: auto;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    align-items: center;
   }
  
   .nav__list.show {
     display: flex; /* Show menu when active */
-  }
- 
-  .nav__list-item {
-    margin: 0.8em 0;
-    width: 100%;
-    text-align: center;
-  }
- 
-  .nav__list-item a {
-    display: block;
-    padding: 0.5em 0;
-    width: 100%;
-    transition: color 0.3s ease;
   }
  
   .app .nav__hamburger {
@@ -144,7 +176,60 @@
   .drawer-component {
     padding: 15px;
   }
+
+
+
+  /* Remove default active styling in mobile */
+  .link--nav.active {
+    border-bottom: none;
+    position: relative;
+  }
+  
+  /* Add custom underline for mobile */
+  .link--nav {
+    position: relative;
+    display: inline-block;
+    width: auto; /* Let the width be determined by content */
+  }
+  
+  /* Underline pseudo-element */
+  .link--nav::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--clr-primary);
+    transition: width 0.3s ease;
+  }
+  
+  /* Hover state */
+  .link--nav:hover::after {
+    width: 100%;
+  }
+  
+  /* Active state */
+  .link--nav.active::after {
+    width: 100%;
+  }
+  
+  /* Ensure text is centered but underline is proper width */
+  .nav__list-item {
+    text-align: center;
+    margin-left: 0;
+    margin-top: 2em;
+  }
+  
+  .nav__list-item a {
+    display: inline-block;
+    width: auto;
+    text-align: center;
+  }
+
+  
 }
+
 
 /* Apply a transition to all themed elements */
 :root {

@@ -1,4 +1,4 @@
-import aboutpic from "./components/Access/mePhoto.jpg"
+// import aboutpic from "./components/Access/mePhoto.jpg"
 
 const header = {
   // all the properties are optional - can be left empty or deleted
@@ -7,9 +7,9 @@ const header = {
 }
 
 const about = {
-  photo:aboutpic,
+  // photo:aboutpic,
   // all the properties are optional - can be left empty or deleted
-  name: 'Yash',
+  name: 'Yash Wankhedkar',
   role: '',
   description:
     'A Computer science student with a love for crafting software, developing games, and telling great stories!',
@@ -86,8 +86,6 @@ const projects = [
     // sourceCode: 'https://github.com/Cognitive-Activation/Mindinator',
     livePreview: 'https://bigdwarf43.itch.io/captain-clown-nose',
     gif: 'assets/captain_clown_nose_gif.gif'
-
-    
   },
 
   
@@ -161,4 +159,24 @@ const contact = {
   email: 'yashwankhedkar43@gmail.com  ',
 }
 
-export { header, about, projects, skills, contact, familiarWithSkills}
+
+const experiences = [
+  {
+    id: 'exp-1',
+    role: 'Software Development Engineer',
+    company: 'Rampp.ai',
+    duration: 'Jan 2024 – Present',
+    description: 'Working on building scalable backend systems and improving product performance.',
+    skills: ['Python', 'Django', 'MongoDB', 'PSQL', 'Docker']
+  },
+  {
+    id: 'exp-2',
+    role: 'Unity3D Game Developer intern',
+    company: 'Dnnovate Technologies',
+    duration: 'Mar 2023 – Jun 2023',
+    description: "Responsible for making mini-game prototypes for Dnnovate's educational RPG Mathtastic",
+    skills: ['Unity3d', 'C#']
+  }
+];
+
+export { header, about, projects, skills, contact, familiarWithSkills, experiences}

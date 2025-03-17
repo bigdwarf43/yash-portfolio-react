@@ -1,16 +1,11 @@
-.flex-container{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: center;
-}
 
 
 .game-container{
   position: relative;
   height: auto;
   width: auto;
-  border: 5px solid var(--clr-fg);
+  /* border: 5px solid var(--clr-fg); */
+  padding-right: 50px;
 }
 
 .about-column{
@@ -30,23 +25,18 @@
 
 
 .about {
-  margin-top: 5em;
+  margin-top: 2em;
 }
 
 .about__name {
   color: var(--clr-primary);
+  font-size: 1.5em;
 }
 
 .about__role {
   margin-top: 1.2em;
 }
 
-.about__desc {
-  font-size: 2rem;
-  max-width: 600px;
-}
-
-.about__desc,
 .about__contact {
   margin-top: 0.5em;
   
@@ -64,14 +54,157 @@
   display: block; 
 }
 
+/* Additional styles for the About component */
+.profile-image-container {
+  flex: 0 0 auto;
+  margin-right: 2rem;
+}
+
+.profile-image {
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.about-content {
+  flex: 1;
+  min-width: 0;
+}
+
+
+.flex-container {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-image-container {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.profile-image {
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.about-content {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about__desc {
+  font-size: 0.8em;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Remove padding-right from game-container as it's no longer needed */
+.game-container {
+  padding-right: 0;
+}
+
+
+/* Common styles for all buttons */
+.btn--outline,
+.link--icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* Resume button styles */
+.btn--outline {
+  border: 2px solid var(--clr-primary);
+  color: var(--clr-primary);
+  background: transparent;
+  padding: 0.5rem 1.5rem;
+  font-size: 1.1rem;
+  min-width: 7rem;
+}
+
+.btn--outline:hover {
+  background-color: var(--clr-primary);
+  color: var(--clr-bg);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Social icon styles */
+.link--icon {
+  color: var(--clr-fg);
+  background: transparent;
+  border: 2px solid var(--clr-fg);
+  border-radius: 50%;
+  padding: 0.6rem;
+  font-size: 1.5rem;
+  height: 3rem;
+  width: 3rem;
+}
+
+.link--icon:hover {
+  color: var(--clr-primary);
+  border-color: var(--clr-primary);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Container for all social links */
+.social-links-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
 
 @media (max-width: 1160px) {
-  .app .about {
-    align-items: center;
-    margin-top: 2em;
-    text-align: center; 
+
+  .flex-container {
+    flex-direction: column;
+  }
+  
+  .profile-image-container {
+    margin-right: 0;
+    margin-bottom: 2rem;
+    order: -1; /* Ensures the profile image stays at the top on mobile */
   }
 
+  .profile-image {
+    width: 180px;
+    height: 180px;
+  }
+  
+  .about-content {
+    width: 100%;
+    text-align: center;
+  }
+
+  .game-container{
+    position: relative;
+    height: auto;
+    width: auto;
+    /* border: 5px solid var(--clr-fg); */
+    padding-right: 0;
+  }
+  
+  .btn--outline,
+  .link--icon {
+    padding: 0.5rem 1rem;
+  }
 
   .about-container {
     flex-direction: column; /* Change to a vertical layout on small screens */
@@ -83,7 +216,11 @@
     width: 100%; /* Make columns take up full width on small screens */
     align-items: center;
     align-content: center;
+    margin-top: 1em;
+
   }
+
+  
 
   .about h1,
   .about p {
