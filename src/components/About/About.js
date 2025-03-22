@@ -23,6 +23,7 @@ const About = () => {
           )}
           
           <div className='about about__contact'>
+
             {resume && (
               <a href={resume} className='resume-link'>
                 <span type='button' className='btn--outline'>
@@ -30,32 +31,35 @@ const About = () => {
                 </span>
               </a>
             )}
+
+          <div className="social-links-container">
+                      {social && (
+                        <>
+                          {social.github && (
+                            <a
+                              href={social.github}
+                              aria-label='github'
+                              className='link--icon'
+                            >
+                              <GitHubIcon />
+                            </a>
+                          )}
+                          {social.linkedin && (
+                            <a
+                              href={social.linkedin}
+                              aria-label='linkedin'
+                              className='link--icon'
+                            >
+                              <LinkedInIcon />
+                            </a>
+                          )}
+                        </>
+                      )}
+                    </div>
+            
           </div>
           
-          <div className="social-links-container">
-            {social && (
-              <>
-                {social.github && (
-                  <a
-                    href={social.github}
-                    aria-label='github'
-                    className='link link--icon'
-                  >
-                    <GitHubIcon />
-                  </a>
-                )}
-                {social.linkedin && (
-                  <a
-                    href={social.linkedin}
-                    aria-label='linkedin'
-                    className='link link--icon'
-                  >
-                    <LinkedInIcon />
-                  </a>
-                )}
-              </>
-            )}
-          </div>
+          
         </div>
       </div>
     </div>

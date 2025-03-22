@@ -8,6 +8,7 @@
   padding-right: 50px;
 }
 
+
 .about-column{
   align-items: center;
   align-content: center;
@@ -26,6 +27,8 @@
 
 .about {
   margin-top: 2em;
+  align-items: center;
+  align-content: center;
 }
 
 .about__name {
@@ -48,9 +51,9 @@
 }
 
 .about .btn--outline {
-  max-width: 4em;
-  font-size: 2rem;
-  text-align: center; /* Use text-align property to center text */
+  max-width: 3em;
+  font-size: 1.5rem;
+  text-align: center;
   display: block; 
 }
 
@@ -113,8 +116,7 @@
 
 
 /* Common styles for all buttons */
-.btn--outline,
-.link--icon {
+.btn--outline{
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -145,14 +147,17 @@
 
 /* Social icon styles */
 .link--icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   color: var(--clr-fg);
   background: transparent;
   border: 2px solid var(--clr-fg);
   border-radius: 50%;
-  padding: 0.6rem;
-  font-size: 1.5rem;
-  height: 3rem;
-  width: 3rem;
+  /* margin: 0.5rem; */
+  width: 50px;
+  height: 50px;
+  transition: all 0.3s ease;
 }
 
 .link--icon:hover {
@@ -165,9 +170,10 @@
 /* Container for all social links */
 .social-links-container {
   display: flex;
+  gap: 0.2rem;
+  margin-top: 1rem;
   justify-content: center;
-  gap: 1rem;
-  margin-top: 1.5rem;
+  /* align-items: center; Ensures vertical centering */
 }
 
 
