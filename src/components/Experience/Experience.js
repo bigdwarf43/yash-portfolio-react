@@ -6,13 +6,6 @@ import { experiences } from '../../portfolio'
 export default function MobileExperienceList() {
   return (
     <div className="mobile-experience-section">
-      <Typography 
-        variant="h4" 
-        gutterBottom 
-        className="section-title"
-      >
-        Professional Experience
-      </Typography>
       
       <Stack spacing={2} sx={{ mt: 3 }}>
         {experiences.map((exp) => (
@@ -24,21 +17,15 @@ export default function MobileExperienceList() {
             <CardContent>
               {/* Role and Company in header */}
               <Box className="card-header">
-                <Typography
-                  variant="h6"
-                  component="div"
-                  className="job-role"
-                >
-                  {exp.role}
-                </Typography>
+            
+                <p className="job-role"> 
+                {exp.role}
+                </p>
+       
                 
-                <Typography
-                  variant="subtitle1"
-                  className="company-name"
-                  color="text.secondary"
-                >
+                <p className="company-name">
                   {exp.company}
-                </Typography>
+                </p>
               </Box>
               
               {/* Duration with a visual indicator */}
@@ -54,17 +41,16 @@ export default function MobileExperienceList() {
               
               <Divider sx={{ my: 1.5 }} />
               
-              {/* Description */}
-              <Typography
-                variant="body2"
-                className="job-description"
-                sx={{ mb: 2 }}
-              >
-                {exp.description}
-              </Typography>
+              <ul className="job-description" >
+                {exp.description.split('.').filter(point => point.trim() !== '').map((point) => (
+                  <li key={`${exp.id}-${point.trim().replace(/\s+/g, '-')}`}>
+                    {point.trim()}.
+                  </li>
+                ))}
+              </ul>
               
               {/* Skills */}
-              <Typography variant="caption" color="text.secondary" sx={{ display: 'block', mb: 1 }}>
+              <Typography>
                 Skills:
               </Typography>
               
@@ -73,7 +59,7 @@ export default function MobileExperienceList() {
                   <Chip
                     key={`${exp.id}-${skill}`}
                     label={skill}
-                    size="small"
+                    size="medium"
                     className="skill-chip"
                   />
                 ))}

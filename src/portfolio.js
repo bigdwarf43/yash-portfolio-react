@@ -166,8 +166,8 @@ const experiences = [
     role: 'Software Development Engineer',
     company: 'Rampp.ai',
     duration: 'Jan 2024 – Present',
-    description: 'Working on building scalable backend systems and improving product performance.',
-    skills: ['Python', 'Django', 'MongoDB', 'PSQL', 'Docker']
+    description: 'Designing and implementing LLM-powered backend services for the RADI-NAVIGATOR product using Python and Django. Building and managing a knowledge base leveraging vector databases and Retrieval-Augmented Generation (RAG) techniques',
+    skills: ["Python", "Django", "Weaviate VectorDB", "PSQL", "Mongo", "redis"]
   },
   {
     id: 'exp-2',
